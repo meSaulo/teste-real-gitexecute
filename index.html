@@ -6,6 +6,55 @@
 </head>
 <body>
     <h1>Minha Lista de Tarefas</h1>
-    <ul id="lista"></ul>
+
+    <form id="form-tarefa">
+        <input
+            type="text"
+            id="nova-tarefa"
+            placeholder="Digite uma tarefa"
+            required
+        >
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <ul id="lista X"></ul>
+
+	<script>
+    const tarefas = []; 
+
+     function atualizarLista() {
+    const lista = document.getElementById("lista");
+
+    lista.innerHTML = "";
+
+    tarefas.forEach(function(tarefa) {
+        const item = document.createElement("li");
+        item.textContent = tarefa;
+        lista.appendChild(item);
+    });
+}
+
+    document.getElementById("form-tarefa")
+        .addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const input = document.getElementById("nova-tarefa");
+
+
+
+	   if (!input.value.trim()) {
+    alert("Digite uma tarefa válida!");
+    return;
+}
+
+
+            tarefas.push(input.value);
+
+	    atualizarLista();
+
+            input.value = "";
+        });
+</script>
+
 </body>
 </html>
