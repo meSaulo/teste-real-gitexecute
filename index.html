@@ -40,6 +40,14 @@
 
             const input = document.getElementById("nova-tarefa");
 
+
+
+	   if (!input.value.trim()) {
+    alert("Digite uma tarefa válida!");
+    return;
+}
+
+
             tarefas.push(input.value);
 
 	    atualizarLista();
