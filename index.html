@@ -18,5 +18,21 @@
     </form>
 
     <ul id="lista"></ul>
+
+	<script>
+    const tarefas = [];
+
+    document.getElementById("form-tarefa")
+        .addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const input = document.getElementById("nova-tarefa");
+
+            tarefas.push(input.value);
+
+            input.value = "";
+        });
+</script>
+
 </body>
 </html>
