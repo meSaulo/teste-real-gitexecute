@@ -20,7 +20,19 @@
     <ul id="lista X"></ul>
 
 	<script>
-    const tarefas = [];
+    const tarefas = []; 
+
+     function atualizarLista() {
+    const lista = document.getElementById("lista");
+
+    lista.innerHTML = "";
+
+    tarefas.forEach(function(tarefa) {
+        const item = document.createElement("li");
+        item.textContent = tarefa;
+        lista.appendChild(item);
+    });
+}
 
     document.getElementById("form-tarefa")
         .addEventListener("submit", function(event) {
@@ -29,6 +41,8 @@
             const input = document.getElementById("nova-tarefa");
 
             tarefas.push(input.value);
+
+	    atualizarLista();
 
             input.value = "";
         });
